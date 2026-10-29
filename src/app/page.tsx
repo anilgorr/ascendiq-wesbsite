@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Tabs from "@/components/Tabs";
 import Integrations from "@/components/Integrations";
+import Monitoring from "@/components/Monitoring";
 import { Reveal, Counter, FlipCard } from "@/components/Motion";
 import { Section, Check } from "@/components/Section";
 import {
@@ -11,7 +12,6 @@ import {
   COST,
   DELIVERABLES,
   FAQ,
-  MONITORING,
   PHASES,
   STATS,
 } from "@/content/site";
@@ -166,16 +166,8 @@ export default function Home() {
         </Section>
 
         {/* 06 Monitoring */}
-        <Section id="monitoring" n="06" eyebrow="Monitoring" title="Certification is day one. Monitoring is every day after." tone="navy">
-          <Reveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {MONITORING.map((m) => (
-              <div key={m.n} className="card lift p-6">
-                <span className="num">{m.n}</span>
-                <h3 className="mt-3 font-semibold text-navy">{m.title}</h3>
-                <p className="mt-2 text-sm text-muted">{m.body}</p>
-              </div>
-            ))}
-          </Reveal>
+        <Section id="monitoring" n="06" eyebrow="Monitoring" title="Certification is day one. Monitoring is every day after." lead="Watch a real drift incident play out: a bucket goes public at 09:14, the owner is alerted, a fix is suggested, and the control is green again by 09:32." tone="navy">
+          <Reveal><Monitoring /></Reveal>
         </Section>
 
         {/* 07 Cost & timeline */}

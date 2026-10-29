@@ -292,3 +292,8 @@ details > summary::-webkit-details-marker {
     to { transform: scale(1.7); opacity: 0; }
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .step-progress { transform-origin: left; animation: stepprog linear both; }
+  @keyframes stepprog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
