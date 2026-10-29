@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Tabs from "@/components/Tabs";
 import Integrations from "@/components/Integrations";
 import Monitoring from "@/components/Monitoring";
+import Phases from "@/components/Phases";
 import { Reveal, Counter, FlipCard } from "@/components/Motion";
 import { Section, Check } from "@/components/Section";
 import {
@@ -12,7 +13,6 @@ import {
   COST,
   DELIVERABLES,
   FAQ,
-  PHASES,
   STATS,
 } from "@/content/site";
 
@@ -67,23 +67,7 @@ export default function Home() {
 
         {/* 02 How it works */}
         <Section id="how-it-works" n="02" eyebrow="How it works" title="Three phases, six to eight weeks" tone="surface">
-          <Reveal stagger className="grid gap-6 lg:grid-cols-3">
-            {PHASES.map((p) => (
-              <div key={p.n} className="card lift flex flex-col p-7">
-                <div className="flex items-center justify-between">
-                  <span className="num">{p.n}</span>
-                  <span className="rounded-full bg-surface px-2.5 py-1 text-xs font-medium text-navy">{p.time}</span>
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-navy">{p.title}</h3>
-                <p className="mt-3 text-sm text-muted">{p.body}</p>
-                <ul className="mt-5 space-y-2 border-t border-line pt-5 text-sm">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex gap-2.5"><Check /> {b}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </Reveal>
+          <Reveal><Phases /></Reveal>
         </Section>
 
         {/* 03 Policy generation spotlight */}

@@ -297,3 +297,60 @@ details > summary::-webkit-details-marker {
   .step-progress { transform-origin: left; animation: stepprog linear both; }
   @keyframes stepprog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
+
+/* 3D floating phase cards */
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 50%;
+  transform-style: preserve-3d;
+}
+.tilt-inner {
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.18s ease-out, box-shadow 0.3s ease;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 2px 4px rgb(10 37 64 / 0.04),
+    0 12px 24px -8px rgb(10 37 64 / 0.12),
+    0 32px 64px -24px rgb(37 99 235 / 0.25);
+}
+.tilt-card:hover .tilt-inner {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 2px 4px rgb(10 37 64 / 0.06),
+    0 24px 40px -12px rgb(10 37 64 / 0.22),
+    0 48px 90px -30px rgb(37 99 235 / 0.45);
+}
+.tilt-glow {
+  background: radial-gradient(360px circle at var(--gx) var(--gy), rgb(6 182 212 / 0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.tilt-card:hover .tilt-glow { opacity: 1; }
+.tilt-inner::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgb(37 99 235 / 0.5), rgb(6 182 212 / 0.1) 40%, rgb(6 182 212 / 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tilt-card { animation: cardfloat 7s ease-in-out infinite; }
+  @keyframes cardfloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  .tilt-card:hover { animation-play-state: paused; }
+  .tilt-shadow { animation: shadowfloat 7s ease-in-out infinite; animation-delay: inherit; }
+  @keyframes shadowfloat {
+    0%, 100% { transform: scaleX(1); opacity: 1; }
+    50% { transform: scaleX(0.85); opacity: 0.6; }
+  }
+}
