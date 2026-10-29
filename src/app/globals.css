@@ -281,3 +281,14 @@ details > summary::-webkit-details-marker {
   inset: 0;
   transform: rotateY(180deg);
 }
+
+/* Integrations hub */
+@media (prefers-reduced-motion: no-preference) {
+  .flow-item { animation: tickin 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hub-ring { animation: hubring 2.4s ease-out infinite; }
+  .hub-ring-2 { animation-delay: 1.2s; }
+  @keyframes hubring {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.7); opacity: 0; }
+  }
+}

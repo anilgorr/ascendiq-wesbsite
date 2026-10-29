@@ -2,12 +2,12 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Tabs from "@/components/Tabs";
+import Integrations from "@/components/Integrations";
 import { Reveal, Counter, FlipCard } from "@/components/Motion";
 import { Section, Check } from "@/components/Section";
 import {
   AUDIENCE,
   COMPARISON,
-  CONNECTORS,
   COST,
   DELIVERABLES,
   FAQ,
@@ -147,26 +147,22 @@ export default function Home() {
           title="Connect once, with read-only credentials"
           lead="No agents to install. AscendIQ reads from the tools you already run and pulls the evidence auditors ask for."
         >
-          <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CONNECTORS.map((c) => (
-              <div key={c.name} className="card lift p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold text-navy">{c.name}</h3>
-                  <span
-                    className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium ${
-                      c.status === "Built-in" ? "bg-emerald-50 text-emerald-700" : c.status === "Connector" ? "bg-blue-50 text-brand" : "bg-surface text-muted"
-                    }`}
-                  >
-                    {c.status}
-                  </span>
+          <Reveal><Integrations /></Reveal>
+          <Reveal stagger className="mt-6 grid gap-3 sm:grid-cols-3">
+            {[
+              ["Read-only, always", "Scoped credentials. AscendIQ never writes to your systems."],
+              ["Retries and health", "Failed pulls retry automatically and surface on the dashboard."],
+              ["REST API + webhooks", "OpenAPI 3.0 docs, versioning and rate limits for your own connectors."],
+            ].map(([t, b]) => (
+              <div key={t} className="flex gap-3 rounded-xl border border-line bg-surface p-4">
+                <Check />
+                <div>
+                  <p className="text-sm font-semibold text-navy">{t}</p>
+                  <p className="mt-0.5 text-xs text-muted">{b}</p>
                 </div>
-                <p className="mt-2 text-sm text-muted">{c.detail}</p>
               </div>
             ))}
           </Reveal>
-          <p className="mt-6 text-sm text-muted">
-            Plus a REST API with OpenAPI 3.0 docs, webhooks for key events, rate limiting and versioning, for anything you want to build yourself.
-          </p>
         </Section>
 
         {/* 06 Monitoring */}
