@@ -134,6 +134,10 @@ body {
   mask-image: radial-gradient(ellipse at 60% 40%, #000 30%, transparent 75%);
 }
 
+.brand-grad {
+  background: linear-gradient(118deg, #1d4ed8 0%, #2563eb 38%, #0ea5e9 72%, #06b6d4 100%);
+}
+
 .grid-bg-light {
   background-image:
     linear-gradient(rgb(10 37 64 / 0.06) 1px, transparent 1px),

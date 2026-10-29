@@ -17,7 +17,7 @@ export function Section({
   children: ReactNode;
   tone?: "white" | "surface" | "navy";
 }) {
-  const bg = tone === "navy" ? "bg-blue-50/50" : tone === "surface" ? "bg-surface" : "bg-white";
+  const bg = tone === "navy" ? "bg-blue-50" : tone === "surface" ? "bg-surface" : "bg-white";
   return (
     <section id={id} className={`${bg} py-16 lg:py-24`}>
       <div className="container-x">

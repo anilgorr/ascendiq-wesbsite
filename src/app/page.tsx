@@ -41,17 +41,17 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-8 grid gap-6 rounded-2xl border border-line bg-surface p-8 lg:grid-cols-[1.2fr_1fr] lg:p-10">
+          <div className="mt-8 grid gap-6 brand-grad rounded-2xl p-8 text-white lg:grid-cols-[1.2fr_1fr] lg:p-10">
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-navy">Every control, one system</h3>
-              <ul className="mt-5 grid gap-3 text-sm text-ink sm:grid-cols-2">
+              <h3 className="text-2xl font-bold tracking-tight">Every control, one system</h3>
+              <ul className="mt-5 grid gap-3 text-sm text-white/90 sm:grid-cols-2">
                 {[
                   "Policies drafted from your industry, size and stack",
                   "Evidence pulled from AWS, GitHub, Jira and HRMS",
                   "Automatic mapping to all 93 Annex A controls",
                   "Live posture, drift alerts and remediation tracking",
                 ].map((b) => (
-                  <li key={b} className="flex gap-3"><Check /> {b}</li>
+                  <li key={b} className="flex gap-3 [&_svg]:text-white"><Check /> {b}</li>
                 ))}
               </ul>
             </div>
@@ -266,13 +266,13 @@ export default function Home() {
         </Section>
 
         {/* Next step */}
-        <section id="next-step" className="relative overflow-hidden border-t border-line bg-gradient-to-b from-blue-50/70 to-white py-20 text-navy">
-          <div className="grid-bg-light absolute inset-0" aria-hidden />
+        <section id="next-step" className="brand-grad relative overflow-hidden py-20 text-white">
+          <div className="grid-bg absolute inset-0" aria-hidden />
           <div className="container-x relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <p className="eyebrow">Next step</p>
+              <p className="eyebrow text-white/80">Next step</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Start with a 45-minute readiness call</h2>
-              <p className="mt-4 max-w-xl text-muted">
+              <p className="mt-4 max-w-xl text-white/85">
                 We look at your stack, your statement of applicability and your audit date, and give you a written, fixed-scope quote. Reply within one business day.
               </p>
             </div>
