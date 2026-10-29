@@ -41,10 +41,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-8 grid gap-6 rounded-2xl bg-navy p-8 text-white lg:grid-cols-[1.2fr_1fr] lg:p-10">
+          <div className="mt-8 grid gap-6 rounded-2xl border border-line bg-surface p-8 lg:grid-cols-[1.2fr_1fr] lg:p-10">
             <div>
-              <h3 className="text-2xl font-bold tracking-tight">Every control, one system</h3>
-              <ul className="mt-5 grid gap-3 text-sm text-white/80 sm:grid-cols-2">
+              <h3 className="text-2xl font-bold tracking-tight text-navy">Every control, one system</h3>
+              <ul className="mt-5 grid gap-3 text-sm text-ink sm:grid-cols-2">
                 {[
                   "Policies drafted from your industry, size and stack",
                   "Evidence pulled from AWS, GitHub, Jira and HRMS",
@@ -55,10 +55,10 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col justify-center rounded-xl border border-white/10 bg-white/5 p-6">
-              <p className="text-sm text-white/70">Built for</p>
-              <p className="mt-1 text-lg font-semibold">Compliance officers, security managers, IT admins, auditors and risk teams</p>
-              <a href="#next-step" className="btn btn-dark mt-5 w-fit">Book a readiness call</a>
+            <div className="flex flex-col justify-center card p-6">
+              <p className="text-sm text-muted">Built for</p>
+              <p className="mt-1 text-lg font-semibold text-navy">Compliance officers, security managers, IT admins, auditors and risk teams</p>
+              <a href="#next-step" className="btn btn-primary mt-5 w-fit">Book a readiness call</a>
             </div>
           </div>
         </Section>
@@ -171,10 +171,10 @@ export default function Home() {
         <Section id="monitoring" n="06" eyebrow="Monitoring" title="Certification is day one. Monitoring is every day after." tone="navy">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {MONITORING.map((m) => (
-              <div key={m.n} className="rounded-xl border border-white/10 bg-white/5 p-6">
+              <div key={m.n} className="card p-6">
                 <span className="num">{m.n}</span>
-                <h3 className="mt-3 font-semibold">{m.title}</h3>
-                <p className="mt-2 text-sm text-white/70">{m.body}</p>
+                <h3 className="mt-3 font-semibold text-navy">{m.title}</h3>
+                <p className="mt-2 text-sm text-muted">{m.body}</p>
               </div>
             ))}
           </div>
@@ -266,13 +266,13 @@ export default function Home() {
         </Section>
 
         {/* Next step */}
-        <section id="next-step" className="relative overflow-hidden bg-navy py-20 text-white">
-          <div className="grid-bg absolute inset-0" aria-hidden />
+        <section id="next-step" className="relative overflow-hidden border-t border-line bg-gradient-to-b from-blue-50/70 to-white py-20 text-navy">
+          <div className="grid-bg-light absolute inset-0" aria-hidden />
           <div className="container-x relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <p className="eyebrow text-cyan">Next step</p>
+              <p className="eyebrow">Next step</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Start with a 45-minute readiness call</h2>
-              <p className="mt-4 max-w-xl text-white/75">
+              <p className="mt-4 max-w-xl text-muted">
                 We look at your stack, your statement of applicability and your audit date, and give you a written, fixed-scope quote. Reply within one business day.
               </p>
             </div>
@@ -280,7 +280,7 @@ export default function Home() {
               action="mailto:hello@ascendiq.ai"
               method="post"
               encType="text/plain"
-              className="rounded-2xl border border-white/10 bg-white p-6 text-ink shadow-2xl"
+              className="rounded-2xl border border-line bg-white p-6 text-ink shadow-[0_24px_60px_-20px_rgb(10_37_64/0.25)]"
             >
               <div className="grid gap-3">
                 <input required name="name" placeholder="Your name" className="rounded-md border border-line px-3 py-2.5 text-sm outline-none focus:border-brand" />

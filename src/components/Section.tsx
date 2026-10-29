@@ -17,17 +17,17 @@ export function Section({
   children: ReactNode;
   tone?: "white" | "surface" | "navy";
 }) {
-  const bg = tone === "navy" ? "bg-navy text-white" : tone === "surface" ? "bg-surface" : "bg-white";
+  const bg = tone === "navy" ? "bg-blue-50/50" : tone === "surface" ? "bg-surface" : "bg-white";
   return (
     <section id={id} className={`${bg} py-16 lg:py-24`}>
       <div className="container-x">
         <div className="max-w-3xl">
           <p className="flex items-center gap-3">
             <span className="num">{n}</span>
-            <span className={`eyebrow ${tone === "navy" ? "text-cyan" : ""}`}>{eyebrow}</span>
+            <span className="eyebrow">{eyebrow}</span>
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-          {lead && <p className={`mt-4 text-lg ${tone === "navy" ? "text-white/70" : "text-muted"}`}>{lead}</p>}
+          {lead && <p className="mt-4 text-lg text-muted">{lead}</p>}
         </div>
         <div className="mt-12">{children}</div>
       </div>
