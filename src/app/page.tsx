@@ -5,13 +5,13 @@ import Tabs from "@/components/Tabs";
 import Integrations from "@/components/Integrations";
 import Monitoring from "@/components/Monitoring";
 import Phases from "@/components/Phases";
-import { Reveal, Counter, FlipCard } from "@/components/Motion";
+import CostEstimator from "@/components/CostEstimator";
+import Deliverables from "@/components/Deliverables";
+import Audience from "@/components/Audience";
+import { Reveal, Counter } from "@/components/Motion";
 import { Section, Check } from "@/components/Section";
 import {
-  AUDIENCE,
   COMPARISON,
-  COST,
-  DELIVERABLES,
   FAQ,
   STATS,
 } from "@/content/site";
@@ -155,22 +155,8 @@ export default function Home() {
         </Section>
 
         {/* 07 Cost & timeline */}
-        <Section id="cost" n="07" eyebrow="Cost & timeline" title="Per organisation. Fixed scope. Weeks, not quarters.">
-          <Reveal stagger className="grid gap-6 lg:grid-cols-3">
-            {COST.map((c) => (
-              <div key={c.value} className="card lift p-7">
-                <div className="text-3xl font-bold tracking-tight text-navy">{c.value}</div>
-                <p className="mt-3 text-sm text-muted">{c.label}</p>
-              </div>
-            ))}
-          </Reveal>
-          <Reveal className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-navy">Unlimited users, every plan</h3>
-              <p className="mt-1 text-sm text-muted">Control owners, auditors, admins — invite everyone. Pricing scales with organisations, controls and integrations, never seats.</p>
-            </div>
-            <a href="#next-step" className="btn btn-primary">Get a fixed-scope quote</a>
-          </Reveal>
+        <Section id="cost" n="07" eyebrow="Cost & timeline" title="Per organisation. Fixed scope. Weeks, not quarters." lead="Set your headcount and the tools you already run to see what a realistic plan looks like. No per-seat pricing — ever.">
+          <Reveal><CostEstimator /></Reveal>
         </Section>
 
         {/* 08 Comparison */}
@@ -201,43 +187,10 @@ export default function Home() {
 
         {/* 09 Deliverables + audience */}
         <Section id="deliverables" n="09" eyebrow="What you get" title="What is in the box">
-          <p className="-mt-6 mb-6 text-sm text-muted">Hover, tap or tab to a card to turn it over.</p>
-          <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {DELIVERABLES.map((d, i) => (
-              <FlipCard
-                key={d.title}
-                className="h-44 cursor-pointer outline-none"
-                front={
-                  <div className="card flex h-full flex-col justify-between p-5">
-                    <span className="num">{String(i + 1).padStart(2, "0")}</span>
-                    <div>
-                      <h3 className="text-lg font-semibold text-navy">{d.title}</h3>
-                      <p className="mt-1 text-xs text-muted">{d.tags.length} included →</p>
-                    </div>
-                  </div>
-                }
-                back={
-                  <div className="brand-grad flex h-full flex-col justify-center rounded-2xl p-5 text-white">
-                    <h3 className="font-semibold">{d.title}</h3>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {d.tags.map((t) => (
-                        <span key={t} className="rounded-md bg-white/20 px-2 py-1 text-[11px] font-medium">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                }
-              />
-            ))}
-          </Reveal>
-          <h3 className="mt-14 text-xl font-bold text-navy">Who it is for</h3>
-          <Reveal stagger className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {AUDIENCE.map((a) => (
-              <div key={a.title} className="lift rounded-xl border border-line border-l-4 border-l-brand bg-surface p-5">
-                <h4 className="font-semibold text-navy">{a.title}</h4>
-                <p className="mt-1.5 text-sm text-muted">{a.body}</p>
-              </div>
-            ))}
-          </Reveal>
+          <Reveal><Deliverables /></Reveal>
+          <h3 className="mt-16 text-2xl font-bold tracking-tight text-navy">Who it is for</h3>
+          <p className="mt-2 text-muted">Same platform, a different first screen for each role.</p>
+          <Reveal className="mt-5"><Audience /></Reveal>
         </Section>
 
         {/* 10 FAQ */}
