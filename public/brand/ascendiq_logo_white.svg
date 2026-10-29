@@ -1,0 +1,7 @@
+<svg width="360" height="96" viewBox="0 0 360 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AscendIQ">
+  <path fill-rule="evenodd" fill="#ffffff" d="
+    M52 16 L80 26 V50 C80 66 69 78 52 84 C35 78 24 66 24 50 V26 Z
+    M38 56 L52 45 L66 56 L66 61 L52 50 L38 61 Z
+    M38 67 L52 56 L66 67 L66 72 L52 61 L38 72 Z"/>
+  <text x="98" y="60" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.5" fill="#ffffff">AscendIQ</text>
+</svg>

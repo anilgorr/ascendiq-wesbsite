@@ -1,0 +1,22 @@
+<svg width="360" height="96" viewBox="0 0 360 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AscendIQ">
+  <defs>
+    <linearGradient id="aGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon: compliance shield + ascending chevrons -->
+  <g transform="translate(16,12)">
+    <path d="M36 4 L64 14 V38 C64 54 53 66 36 72 C19 66 8 54 8 38 V14 Z"
+          fill="url(#aGrad)"/>
+    <path d="M22 46 L36 35 L50 46" fill="none" stroke="#ffffff" stroke-width="5"
+          stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M22 56 L36 45 L50 56" fill="none" stroke="#ffffff" stroke-width="5"
+          stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="98" y="60" font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-size="38" letter-spacing="-0.5">
+    <tspan font-weight="600" fill="#0A2540">Ascend</tspan><tspan font-weight="700" fill="#2563EB">IQ</tspan>
+  </text>
+</svg>

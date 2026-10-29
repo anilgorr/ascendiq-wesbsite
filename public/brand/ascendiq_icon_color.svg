@@ -1,0 +1,10 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AscendIQ icon">
+  <defs>
+    <linearGradient id="iA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <path d="M40 6 L70 16 V40 C70 57 58 70 40 76 C22 70 10 57 10 40 V16 Z" fill="url(#iA)"/>
+  <path d="M25 48 L40 36 L55 48" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <path d="M25 59 L40 47 L55 59" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+</svg>
