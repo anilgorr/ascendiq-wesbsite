@@ -6,7 +6,7 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ascendiq.ai"),
+  metadataBase: new URL("https://ascendiq.app"),
   title: {
     default: "AscendIQ — ISO 27001 compliance automation, powered by LLMs",
     template: "%s · AscendIQ",

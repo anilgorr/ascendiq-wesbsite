@@ -180,6 +180,6 @@ export const FAQ = [
 ];
 
 export const CONTACT = {
-  email: "hello@ascendiq.ai",
+  email: "hello@ascendiq.app",
   demoHref: "#next-step",
 };

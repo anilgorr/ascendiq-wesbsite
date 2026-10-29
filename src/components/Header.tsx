@@ -34,7 +34,7 @@ export default function Header() {
       <div className="bg-navy text-xs text-white/80">
         <div className="container-x flex h-8 items-center justify-between">
           <span className="hidden sm:inline">ISO 27001:2022 · 93 Annex A controls · Multi-tenant SaaS</span>
-          <a href="mailto:hello@ascendiq.ai" className="hover:text-white">hello@ascendiq.ai</a>
+          <a href="mailto:hello@ascendiq.app" className="hover:text-white">hello@ascendiq.app</a>
         </div>
       </div>
       <div className="border-b border-line bg-white/90 backdrop-blur">

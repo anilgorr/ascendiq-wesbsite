@@ -37,5 +37,5 @@ Push to `main` and import the repo in Vercel; defaults work. Set the real domain
 ## To do
 
 - Wire the readiness-call form to a real endpoint (currently `mailto:`)
-- Replace `hello@ascendiq.ai` and the LinkedIn link with real contacts
+- Replace the LinkedIn placeholder link with the real profile
 - Privacy policy and terms pages

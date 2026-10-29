@@ -277,7 +277,7 @@ export default function Home() {
               </p>
             </div>
             <form
-              action="mailto:hello@ascendiq.ai"
+              action="mailto:hello@ascendiq.app"
               method="post"
               encType="text/plain"
               className="rounded-2xl border border-line bg-white p-6 text-ink shadow-[0_24px_60px_-20px_rgb(10_37_64/0.25)]"

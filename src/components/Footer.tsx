@@ -22,7 +22,7 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-white">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="mailto:hello@ascendiq.ai" className="hover:text-white">hello@ascendiq.ai</a></li>
+            <li><a href="mailto:hello@ascendiq.app" className="hover:text-white">hello@ascendiq.app</a></li>
             <li><a href="#next-step" className="hover:text-white">Book a readiness call</a></li>
             <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a></li>
           </ul>
