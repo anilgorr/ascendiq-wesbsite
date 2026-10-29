@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Tabs from "@/components/Tabs";
+import { Reveal, Counter, FlipCard } from "@/components/Motion";
 import { Section, Check } from "@/components/Section";
 import {
   AUDIENCE,
@@ -30,18 +31,19 @@ export default function Home() {
           title="Compliance work that nobody should still be doing by hand"
           lead="Most ISO 27001 programmes stall on the same two things: writing policies from scratch and chasing screenshots for evidence. AscendIQ does both, then keeps the controls honest after the certificate arrives."
         >
-          <div className="grid gap-6 lg:grid-cols-3">
+          <Reveal stagger className="grid gap-6 lg:grid-cols-3">
             {STATS.map((s, i) => (
-              <div key={s.label} className="card p-7">
+              <div key={s.label} className="card lift p-7">
                 <span className="num">{String(i + 1).padStart(2, "0")}</span>
                 <div className="mt-3 text-4xl font-bold tracking-tight text-navy">
-                  {s.value} <span className="text-xl font-semibold text-muted">{s.unit}</span>
+                  {i === 0 ? <>4–<Counter to={8} /></> : i === 1 ? <Counter to={80} suffix="%+" /> : <Counter to={93} />}{" "}
+                  <span className="text-xl font-semibold text-muted">{s.unit}</span>
                 </div>
                 <p className="mt-2 text-sm text-muted">{s.label}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-8 grid gap-6 brand-grad rounded-2xl p-8 text-white lg:grid-cols-[1.2fr_1fr] lg:p-10">
+          </Reveal>
+          <Reveal className="mt-8 grid gap-6 brand-grad rounded-2xl p-8 text-white lg:grid-cols-[1.2fr_1fr] lg:p-10">
             <div>
               <h3 className="text-2xl font-bold tracking-tight">Every control, one system</h3>
               <ul className="mt-5 grid gap-3 text-sm text-white/90 sm:grid-cols-2">
@@ -60,14 +62,14 @@ export default function Home() {
               <p className="mt-1 text-lg font-semibold text-navy">Compliance officers, security managers, IT admins, auditors and risk teams</p>
               <a href="#next-step" className="btn btn-primary mt-5 w-fit">Book a readiness call</a>
             </div>
-          </div>
+          </Reveal>
         </Section>
 
         {/* 02 How it works */}
         <Section id="how-it-works" n="02" eyebrow="How it works" title="Three phases, six to eight weeks" tone="surface">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <Reveal stagger className="grid gap-6 lg:grid-cols-3">
             {PHASES.map((p) => (
-              <div key={p.n} className="card flex flex-col p-7">
+              <div key={p.n} className="card lift flex flex-col p-7">
                 <div className="flex items-center justify-between">
                   <span className="num">{p.n}</span>
                   <span className="rounded-full bg-surface px-2.5 py-1 text-xs font-medium text-navy">{p.time}</span>
@@ -81,7 +83,7 @@ export default function Home() {
                 </ul>
               </div>
             ))}
-          </div>
+          </Reveal>
         </Section>
 
         {/* 03 Policy generation spotlight */}
@@ -93,7 +95,7 @@ export default function Home() {
           lead="Not a template pack with blanks to fill. The model takes your context and drafts each policy, then checks it against the standard before you see it."
         >
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-            <ul className="space-y-5">
+            <Reveal as="ul" stagger className="space-y-5">
               {[
                 ["Context in, policies out", "Industry, headcount, cloud provider, code hosting, ticketing. That is all the model needs to draft 93 policies that read like yours."],
                 ["Validated, not just generated", "Each draft is checked against ISO 27001 requirements and scored. Low-confidence sections are highlighted for human attention first."],
@@ -107,8 +109,8 @@ export default function Home() {
                   </div>
                 </li>
               ))}
-            </ul>
-            <div className="card overflow-hidden">
+            </Reveal>
+            <Reveal className="card overflow-hidden">
               <div className="border-b border-line bg-surface px-5 py-3 text-xs text-muted">Generation run · 93 controls · 4 min 12 s</div>
               <div className="divide-y divide-line">
                 {[
@@ -128,13 +130,13 @@ export default function Home() {
                 ))}
               </div>
               <div className="bg-surface px-5 py-3 text-xs text-muted">1 policy flagged for review · 92 ready for approval</div>
-            </div>
+            </Reveal>
           </div>
         </Section>
 
         {/* 04 Capabilities tabs */}
         <Section id="capabilities" n="04" eyebrow="What AscendIQ does" title="Five jobs, one platform" tone="surface">
-          <Tabs />
+          <Reveal><Tabs /></Reveal>
         </Section>
 
         {/* 05 Integrations */}
@@ -145,9 +147,9 @@ export default function Home() {
           title="Connect once, with read-only credentials"
           lead="No agents to install. AscendIQ reads from the tools you already run and pulls the evidence auditors ask for."
         >
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CONNECTORS.map((c) => (
-              <div key={c.name} className="card p-5">
+              <div key={c.name} className="card lift p-5">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-semibold text-navy">{c.name}</h3>
                   <span
@@ -161,7 +163,7 @@ export default function Home() {
                 <p className="mt-2 text-sm text-muted">{c.detail}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
           <p className="mt-6 text-sm text-muted">
             Plus a REST API with OpenAPI 3.0 docs, webhooks for key events, rate limiting and versioning, for anything you want to build yourself.
           </p>
@@ -169,39 +171,39 @@ export default function Home() {
 
         {/* 06 Monitoring */}
         <Section id="monitoring" n="06" eyebrow="Monitoring" title="Certification is day one. Monitoring is every day after." tone="navy">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {MONITORING.map((m) => (
-              <div key={m.n} className="card p-6">
+              <div key={m.n} className="card lift p-6">
                 <span className="num">{m.n}</span>
                 <h3 className="mt-3 font-semibold text-navy">{m.title}</h3>
                 <p className="mt-2 text-sm text-muted">{m.body}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </Section>
 
         {/* 07 Cost & timeline */}
         <Section id="cost" n="07" eyebrow="Cost & timeline" title="Per organisation. Fixed scope. Weeks, not quarters.">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <Reveal stagger className="grid gap-6 lg:grid-cols-3">
             {COST.map((c) => (
-              <div key={c.value} className="card p-7">
+              <div key={c.value} className="card lift p-7">
                 <div className="text-3xl font-bold tracking-tight text-navy">{c.value}</div>
                 <p className="mt-3 text-sm text-muted">{c.label}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
+          </Reveal>
+          <Reveal className="mt-8 flex flex-col items-start gap-5 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-xl font-bold text-navy">Unlimited users, every plan</h3>
               <p className="mt-1 text-sm text-muted">Control owners, auditors, admins — invite everyone. Pricing scales with organisations, controls and integrations, never seats.</p>
             </div>
             <a href="#next-step" className="btn btn-primary">Get a fixed-scope quote</a>
-          </div>
+          </Reveal>
         </Section>
 
         {/* 08 Comparison */}
         <Section id="comparison" n="08" eyebrow="Comparison" title="AscendIQ vs the way it is usually done" tone="surface">
-          <div className="card overflow-x-auto">
+          <Reveal className="card overflow-x-auto">
             <table className="w-full min-w-[720px] text-sm">
               <thead>
                 <tr className="bg-navy text-left text-white">
@@ -222,37 +224,53 @@ export default function Home() {
                 ))}
               </tbody>
             </table>
-          </div>
+          </Reveal>
         </Section>
 
         {/* 09 Deliverables + audience */}
         <Section id="deliverables" n="09" eyebrow="What you get" title="What is in the box">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {DELIVERABLES.map((d) => (
-              <div key={d.title} className="card p-5">
-                <h3 className="font-semibold text-navy">{d.title}</h3>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {d.tags.map((t) => (
-                    <span key={t} className="rounded-md bg-surface px-2 py-1 text-[11px] font-medium text-muted">{t}</span>
-                  ))}
-                </div>
-              </div>
+          <p className="-mt-6 mb-6 text-sm text-muted">Hover, tap or tab to a card to turn it over.</p>
+          <Reveal stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {DELIVERABLES.map((d, i) => (
+              <FlipCard
+                key={d.title}
+                className="h-44 cursor-pointer outline-none"
+                front={
+                  <div className="card flex h-full flex-col justify-between p-5">
+                    <span className="num">{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-navy">{d.title}</h3>
+                      <p className="mt-1 text-xs text-muted">{d.tags.length} included →</p>
+                    </div>
+                  </div>
+                }
+                back={
+                  <div className="brand-grad flex h-full flex-col justify-center rounded-2xl p-5 text-white">
+                    <h3 className="font-semibold">{d.title}</h3>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {d.tags.map((t) => (
+                        <span key={t} className="rounded-md bg-white/20 px-2 py-1 text-[11px] font-medium">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                }
+              />
             ))}
-          </div>
+          </Reveal>
           <h3 className="mt-14 text-xl font-bold text-navy">Who it is for</h3>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal stagger className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {AUDIENCE.map((a) => (
-              <div key={a.title} className="rounded-xl border-l-4 border-brand bg-surface p-5">
+              <div key={a.title} className="lift rounded-xl border border-line border-l-4 border-l-brand bg-surface p-5">
                 <h4 className="font-semibold text-navy">{a.title}</h4>
                 <p className="mt-1.5 text-sm text-muted">{a.body}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </Section>
 
         {/* 10 FAQ */}
         <Section id="faq" n="10" eyebrow="FAQ" title="Questions compliance teams ask us" tone="surface">
-          <div className="card divide-y divide-line">
+          <Reveal className="card divide-y divide-line">
             {FAQ.map((f) => (
               <details key={f.q} className="group px-6 py-5">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-navy">
@@ -262,20 +280,21 @@ export default function Home() {
                 <p className="mt-3 max-w-3xl text-sm text-muted">{f.a}</p>
               </details>
             ))}
-          </div>
+          </Reveal>
         </Section>
 
         {/* Next step */}
         <section id="next-step" className="brand-grad relative overflow-hidden py-20 text-white">
           <div className="grid-bg absolute inset-0" aria-hidden />
           <div className="container-x relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-            <div>
+            <Reveal>
               <p className="eyebrow text-white/80">Next step</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Start with a 45-minute readiness call</h2>
               <p className="mt-4 max-w-xl text-white/85">
                 We look at your stack, your statement of applicability and your audit date, and give you a written, fixed-scope quote. Reply within one business day.
               </p>
-            </div>
+            </Reveal>
+            <Reveal className="rise-1">
             <form
               action="mailto:hello@ascendiq.app"
               method="post"
@@ -297,6 +316,7 @@ export default function Home() {
               </div>
               <p className="mt-3 text-center text-xs text-muted">No sales deck. We bring a readiness checklist.</p>
             </form>
+            </Reveal>
           </div>
         </section>
       </main>

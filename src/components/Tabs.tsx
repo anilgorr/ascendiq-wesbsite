@@ -25,7 +25,7 @@ export default function Tabs() {
           </button>
         ))}
       </div>
-      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1fr]">
+      <div key={active} className="ticker-row grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1fr]">
         <div>
           <h3 className="text-2xl font-bold tracking-tight text-navy">{tab.heading}</h3>
           <p className="mt-3 text-muted">{tab.body}</p>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "./Motion";
 
 export function Section({
   id,
@@ -21,14 +22,14 @@ export function Section({
   return (
     <section id={id} className={`${bg} py-16 lg:py-24`}>
       <div className="container-x">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="flex items-center gap-3">
             <span className="num">{n}</span>
             <span className="eyebrow">{eyebrow}</span>
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
           {lead && <p className="mt-4 text-lg text-muted">{lead}</p>}
-        </div>
+        </Reveal>
         <div className="mt-12">{children}</div>
       </div>
     </section>

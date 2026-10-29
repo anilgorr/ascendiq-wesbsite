@@ -15,6 +15,8 @@ const CONTROLS = [
   { id: "A.5.1", label: "Policies for infosec", pct: 100 },
 ];
 
+import { Counter, Ticker } from "./Motion";
+
 export default function Hero() {
   return (
     <section className="brand-grad relative overflow-hidden text-white">
@@ -37,16 +39,18 @@ export default function Hero() {
             <a href="#how-it-works" className="btn border border-white/40 text-white hover:bg-white/10">See how it works</a>
           </div>
           <div className="rise rise-3 mt-10 grid grid-cols-3 gap-6 border-t border-white/25 pt-8">
-            {[
-              ["4–8 wks", "to audit-ready"],
-              ["80%+", "evidence automated"],
-              ["93", "controls pre-mapped"],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <div className="text-2xl font-bold tracking-tight sm:text-3xl">{v}</div>
-                <div className="mt-1 text-xs text-white/75">{l}</div>
-              </div>
-            ))}
+            <div>
+              <div className="text-2xl font-bold tracking-tight sm:text-3xl">4–<Counter to={8} /> wks</div>
+              <div className="mt-1 text-xs text-white/75">to audit-ready</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold tracking-tight sm:text-3xl"><Counter to={80} suffix="%+" /></div>
+              <div className="mt-1 text-xs text-white/75">evidence automated</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold tracking-tight sm:text-3xl"><Counter to={93} /></div>
+              <div className="mt-1 text-xs text-white/75">controls pre-mapped</div>
+            </div>
           </div>
         </div>
 
@@ -74,7 +78,7 @@ export default function Hero() {
               <div>
                 <p className="num mb-3 text-muted">ANNEX A CONTROLS</p>
                 <div className="space-y-2">
-                  {CONTROLS.map((c) => (
+                  {CONTROLS.map((c, i) => (
                     <div key={c.id} className="rounded-lg border border-line bg-surface px-3 py-2">
                       <div className="flex items-center justify-between gap-2 text-sm">
                         <span className="font-mono text-[11px] text-cyan">{c.id}</span>
@@ -82,7 +86,7 @@ export default function Hero() {
                         <span className="text-[11px] text-muted">{c.pct}%</span>
                       </div>
                       <div className="mt-1.5 h-1 overflow-hidden rounded bg-line">
-                        <div className="h-full rounded bg-gradient-to-r from-brand to-cyan" style={{ width: `${c.pct}%` }} />
+                        <div className="bar-fill h-full rounded bg-gradient-to-r from-brand to-cyan" style={{ width: `${c.pct}%`, animationDelay: `${0.4 + i * 0.12}s` }} />
                       </div>
                     </div>
                   ))}
@@ -91,12 +95,11 @@ export default function Hero() {
             </div>
             <div className="mt-4 flex items-center justify-between border-t border-line pt-4 text-xs">
               <span className="text-muted">Compliance posture</span>
-              <span className="font-mono text-brand">96.2% · 89 / 93 implemented</span>
+              <span className="font-mono text-brand"><Counter to={96.2} decimals={1} suffix="%" duration={1800} /> · 89 / 93 implemented</span>
             </div>
           </div>
-          <div className="absolute -bottom-4 left-2 flex sm:-left-4 items-center gap-2 rounded-full border border-line bg-white px-3 py-1.5 text-xs text-navy shadow-lg">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            Evidence validated · 11:42 IST
+          <div className="float-slow absolute -bottom-5 left-2 w-[min(92%,22rem)] rounded-full border border-line bg-white px-3.5 py-2 shadow-lg sm:-left-6">
+            <Ticker />
           </div>
         </div>
       </div>
